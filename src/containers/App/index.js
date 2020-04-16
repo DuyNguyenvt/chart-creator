@@ -11,6 +11,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import TestSeedScreen from "containers/App/screens/TestSeedScreen/Injectable";
 import MyProfile from "containers/App/screens/MyProfile";
 import history from "utils/history";
+import Home from "containers/Home/Injectable";
 // import config from "global-config";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={TestSeedScreen} />
         <Route exact path="/author/profile" component={MyProfile} />
+        <Route path="/home" component={Home} />
       </Switch>
     </>
   );
