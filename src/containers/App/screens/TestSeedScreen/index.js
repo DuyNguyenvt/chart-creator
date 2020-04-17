@@ -44,14 +44,17 @@ const BtnsWrapper = styled.div`
 
 function TestSeedScreen(props) {
   const { accessToken, dispatch } = props;
-  const handleSetAccount = () => {
-    dispatch(actions.login());
-  };
+  // const handleSetAccount = () => {
+  //   dispatch(actions.login());
+  // };
+
   // console.log("checkStore", React.useContext(ReactReduxContext).store);
   return (
     <Wrapper className="hs-test-screen--wrapper">
       <BtnsWrapper>
-        <Button onClick={() => handleSetAccount()}>Test set account</Button>
+        <Button onClick={() => history.push("/home/chartMaker")}>
+          Go to Application
+        </Button>
         <MyProfileBtn onClick={() => history.push("/author/profile")}>
           Go to My profile
         </MyProfileBtn>
