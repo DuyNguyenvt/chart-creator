@@ -16,7 +16,6 @@ const HomeReducer = (state = initState, action) => {
         console.log("vao day ...");
         break;
       case constants.SAVE_CHART_SUCCESS:
-        // console.log("vao day nua", action.payload);
         // newState.accessToken = action.payload;
         break;
       default:

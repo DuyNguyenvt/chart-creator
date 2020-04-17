@@ -51,6 +51,7 @@ function MenuBar(props) {
       </ArrowExpandButton>
       {chartsMapper.map((chartItem) => (
         <MenuBarItem
+          key={`Menu-item-${chartItem.name}`}
           itemDefine={chartItem}
           currentChart={currentChart}
           changeGraphType={changeGraphType}
@@ -60,4 +61,10 @@ function MenuBar(props) {
   );
 }
 
-export default MenuBar;
+MenuBar.propTypes = {
+  menuOnHover: PropTypes.bool,
+  currentChart: PropTypes.string,
+  changeGraphType: PropTypes.func,
+};
+
+export default React.memo(MenuBar);

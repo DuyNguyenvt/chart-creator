@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import theme from "utils/themes";
 
@@ -26,8 +27,8 @@ const Wrapper = styled.div`
     color: ${theme.nnqduyGreenElegant};
     background-color: rgba(107, 109, 110, 0.6);
   }
-  ${({ onSelect }) => {
-    if (onSelect) {
+  ${({ active }) => {
+    if (active) {
       return `
           color: ${theme.nnqduyGreenElegant};
           background-color: rgba(107, 109, 110, 0.6);
@@ -40,7 +41,7 @@ function MenuBarItem(props) {
   const { itemDefine, currentChart, changeGraphType } = props;
   return (
     <Wrapper
-      onSelect={currentChart === itemDefine.ENUM}
+      active={currentChart === itemDefine.ENUM}
       onClick={() => changeGraphType(itemDefine.ENUM)}
     >
       <IconWrapper>
@@ -50,5 +51,11 @@ function MenuBarItem(props) {
     </Wrapper>
   );
 }
+
+MenuBarItem.propTypes = {
+  itemDefine: PropTypes.any,
+  currentChart: PropTypes.string,
+  changeGraphType: PropTypes.func,
+};
 
 export default MenuBarItem;
