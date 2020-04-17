@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { Row, Col } from "reactstrap";
+import * as _ from "lodash";
 import { DEFINE_NAV_ITEMS, DEFINE_NAV_CHART_TYPE } from "./constants.js";
 
 import ChartMakerHeader from "containers/Home/components/ChartMaker/Header";
 import MenuBar from "containers/Home/components/ChartMaker/Menubar";
+import Chart from "containers/Home/components/ChartMaker/Chart";
+import ChartForm from "containers/Home/components/ChartMaker/ChartForm";
 
 const Rowx = styled(Row)`
   margin: 0px;
@@ -19,6 +22,8 @@ const HeaderWrapper = styled.div`
   height: 50px;
   position: fixed;
   top: 0;
+  z-index: 1000;
+  background: white;
 `;
 
 const MainWrapper = styled.div`
@@ -29,6 +34,15 @@ const MenuBarWrapper = styled.div`
   position: fixed;
   top: 30%;
   left: 5px;
+  z-index: 100;
+`;
+
+const ChartWrapper = styled.div`
+  width: 500px;
+`;
+
+const FormWrapper = styled.div`
+  padding: 30px;
 `;
 
 class ChartMaker extends React.PureComponent {
@@ -36,10 +50,26 @@ class ChartMaker extends React.PureComponent {
     super(props);
     this.state = {
       navItem: DEFINE_NAV_ITEMS.SAMPLE_1,
-      currentChart: DEFINE_NAV_CHART_TYPE.DOUGHNUT_CHART.ENUM,
+      currentChart: DEFINE_NAV_CHART_TYPE.SPLINE_CHART.ENUM,
       menuOnHover: false,
+      form: {
+        title: "No Name",
+        data: ["10", "20", "5"],
+        labels: ["January", "Febuary", "March"],
+      },
     };
   }
+
+  setField = (path, value) => {
+    const copyForm = { ...this.state.form };
+    _.set(copyForm, path, value);
+    this.setState({ form: copyForm });
+  };
+
+  setValues = (newValues) => {
+    const { form } = this.state;
+    this.setState({ form: { ...form, ...newValues } });
+  };
 
   handleNavSample = (newNavItem) => {
     this.setState({ navItem: newNavItem });
@@ -54,7 +84,7 @@ class ChartMaker extends React.PureComponent {
   };
 
   render() {
-    const { navItem, menuOnHover, currentChart } = this.state;
+    const { navItem, menuOnHover, currentChart, form } = this.state;
     return (
       <Wrapper>
         <HeaderWrapper>
@@ -80,7 +110,25 @@ class ChartMaker extends React.PureComponent {
                   </MenuBarWrapper>
                 </Colx>
                 <Colx xs={11}>
-                  <div>this is the chart area</div>
+                  <Rowx>
+                    <Colx xs={12}>
+                      <ChartWrapper>
+                        <Chart currentChart={currentChart} form={form} />
+                      </ChartWrapper>
+                    </Colx>
+                  </Rowx>
+                  <Rowx>
+                    <Colx xs={12}>
+                      <FormWrapper>
+                        <ChartForm
+                          currentChart={currentChart}
+                          form={form}
+                          setField={this.setField}
+                          setValues={this.setValues}
+                        />
+                      </FormWrapper>
+                    </Colx>
+                  </Rowx>
                 </Colx>
               </Rowx>
             </Colx>

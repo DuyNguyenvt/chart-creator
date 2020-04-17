@@ -1,5 +1,6 @@
 import React from "react";
-import * as actions from "containers/App/actions";
+// import * as actions from "containers/App/actions";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import history from "utils/history";
 
@@ -43,10 +44,7 @@ const BtnsWrapper = styled.div`
 `;
 
 function TestSeedScreen(props) {
-  const { accessToken, dispatch } = props;
-  // const handleSetAccount = () => {
-  //   dispatch(actions.login());
-  // };
+  const { accessToken } = props;
 
   // console.log("checkStore", React.useContext(ReactReduxContext).store);
   return (
@@ -63,5 +61,9 @@ function TestSeedScreen(props) {
     </Wrapper>
   );
 }
+
+TestSeedScreen.propTypes = {
+  accessToken: PropTypes.string,
+};
 
 export default TestSeedScreen;

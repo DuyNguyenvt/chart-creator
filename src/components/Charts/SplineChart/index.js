@@ -1,51 +1,79 @@
 import React from "react";
-import CanvasJSReact from "libs/canvasjs/canvasjs.react";
-// var CanvasJS = CanvasJSReact.CanvasJS;
-var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+import styled from "styled-components";
+import PropTypes from "prop-types";
+import * as _ from "lodash";
+import { Line } from "react-chartjs-2";
 
-const options = {
-  animationEnabled: true,
-  title: {
-    text: "Monthly Sales - 2017",
-  },
-  axisX: {
-    valueFormatString: "MMM",
-  },
-  axisY: {
-    title: "Sales (in USD)",
-    prefix: "$",
-    includeZero: false,
-  },
-  data: [
+const Wrapper = styled.div``;
+
+let data = {
+  labels: ["January", "February", "March", "April", "May", "June", "July"],
+  datasets: [
     {
-      yValueFormatString: "$#,###",
-      xValueFormatString: "MMMM",
-      type: "spline",
-      dataPoints: [
-        { x: new Date(2017, 0), y: 25060 },
-        { x: new Date(2017, 1), y: 27980 },
-        { x: new Date(2017, 2), y: 42800 },
-        { x: new Date(2017, 3), y: 32400 },
-        { x: new Date(2017, 4), y: 35260 },
-        { x: new Date(2017, 5), y: 33900 },
-        { x: new Date(2017, 6), y: 40000 },
-        { x: new Date(2017, 7), y: 52500 },
-        { x: new Date(2017, 8), y: 32300 },
-        { x: new Date(2017, 9), y: 42000 },
-        { x: new Date(2017, 10), y: 37160 },
-        { x: new Date(2017, 11), y: 38400 },
-      ],
+      label: "Default label",
+      data: [65, 59, 80, 81, 56, 55, 40],
+      fill: false,
+      lineTension: 0.4,
+      backgroundColor: "rgba(75,192,192,0.4)",
+      borderColor: "rgba(75,192,192,1)",
+      borderCapStyle: "butt",
+      borderDash: [5, 5],
+      borderDashOffset: 0.0,
+      borderJoinStyle: "miter",
+      pointBorderColor: "rgba(75,192,192,1)",
+      pointBackgroundColor: "#fff",
+      pointBorderWidth: 1,
+      pointHoverRadius: 5,
+      pointHoverBackgroundColor: "rgba(75,192,192,1)",
+      pointHoverBorderColor: "rgba(220,220,220,1)",
+      pointHoverBorderWidth: 2,
+      pointRadius: 1,
+      pointHitRadius: 10,
     },
   ],
 };
 
-function SplineChart() {
-  return (
-    <CanvasJSChart
-      options={options}
-      /* onRef={ref => this.chart = ref} */
-    />
-  );
-}
+let options = {
+  legend: {
+    display: false,
+  },
+};
 
-export default SplineChart;
+const GraphTitle = styled.div``;
+
+class LineChart extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      test: false,
+    };
+  }
+  render() {
+    const { dataSets, labels, optionConfigs, title } = this.props;
+    if (!_.isEmpty(optionConfigs)) options = { ...options, ...optionConfigs };
+    if (!_.isEmpty(labels)) data = { ...data, labels: labels };
+    if (!_.isEmpty(dataSets))
+      data = {
+        ...data,
+        datasets: [
+          {
+            ...data.datasets[0],
+            ...dataSets,
+          },
+        ],
+      };
+
+    return (
+      <Wrapper>
+        {title && <GraphTitle>{title}</GraphTitle>}
+        <Line data={data} options={options} />
+      </Wrapper>
+    );
+  }
+}
+LineChart.propTypes = {
+  dataConfig: PropTypes.object,
+  optionConfigs: PropTypes.object,
+};
+
+export default LineChart;

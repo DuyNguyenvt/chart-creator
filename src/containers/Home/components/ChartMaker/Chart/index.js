@@ -3,27 +3,27 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import * as _ from "lodash";
 import { DEFINE_NAV_CHART_TYPE } from "containers/Home/screens/ChartMaker/constants";
-import LineChartForm from "containers/Home/components/ChartMaker/LineChartForm";
+import LineChart from "containers/Home/components/ChartMaker/LineChart";
 
 const Wrapper = styled.div``;
 
-function ChartForm(props) {
-  const { currentChart, form, setField, setValues } = props;
-
+function Chart(props) {
+  const { currentChart, form } = props;
+  const data = {
+    title: _.get(form, "title"),
+  };
   return (
     <Wrapper>
       {currentChart === DEFINE_NAV_CHART_TYPE.SPLINE_CHART.ENUM && (
-        <LineChartForm form={form} setField={setField} setValues={setValues} />
+        <LineChart title={data.title} form={form} />
       )}
     </Wrapper>
   );
 }
 
-ChartForm.propTypes = {
+Chart.propTypes = {
   currentChart: PropTypes.string,
   form: PropTypes.any,
-  setField: PropTypes.func,
-  setValues: PropTypes.func,
 };
 
-export default ChartForm;
+export default Chart;
