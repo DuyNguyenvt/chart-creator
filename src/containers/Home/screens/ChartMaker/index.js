@@ -1,52 +1,34 @@
 import React from "react";
 import styled from "styled-components";
-import { Row, Col, Nav, NavItem, NavLink } from "reactstrap";
-import theme from "utils/themes";
-import { FaChartLine } from "react-icons/fa";
-import { DEFINE_NAV_ITEMS } from "./constants.js";
+import { Row, Col } from "reactstrap";
+import { DEFINE_NAV_ITEMS, DEFINE_NAV_CHART_TYPE } from "./constants.js";
 
-const Rowx = styled(Row)``;
-const Colx = styled(Col)``;
+import ChartMakerHeader from "containers/Home/components/ChartMaker/Header";
+import MenuBar from "containers/Home/components/ChartMaker/Menubar";
+
+const Rowx = styled(Row)`
+  margin: 0px;
+`;
+const Colx = styled(Col)`
+  padding: 0;
+`;
 const Wrapper = styled.div``;
 
-const Header = styled.div`
-  border: solid 3px lightgray;
-  border-width: 0 0 3px 0;
+const HeaderWrapper = styled.div`
+  width: 100%;
   height: 50px;
-  display: flex;
-  align-items: center;
-  padding: 0px 12px;
+  position: fixed;
+  top: 0;
 `;
 
-const HeaderTitle = styled.div`
-  font-weight: 600;
-  color: ${theme.nnqduyGreenElegant};
-  margin-right: 50px;
-  span :first-child {
-    margin-right: 5px;
-  }
+const MainWrapper = styled.div`
+  margin-top: 50px;
+  height: calc(100vh - 50px);
 `;
-
-const NavWrapper = styled.div`
-  .nav {
-    height: inherit;
-    .nav-item {
-      border: solid 3px;
-      border-color: transparent;
-      .nav-link {
-        color: black;
-      }
-    }
-  }
-  .nav-item.active {
-    border: solid 3px;
-    border-color: transparent transparent ${theme.nnqduyGreenElegant}
-      transparent;
-    .nav-link {
-      color: ${theme.nnqduyGreenElegant} !important;
-    }
-  }
-  height: 100%;
+const MenuBarWrapper = styled.div`
+  position: fixed;
+  top: 30%;
+  left: 5px;
 `;
 
 class ChartMaker extends React.PureComponent {
@@ -54,47 +36,56 @@ class ChartMaker extends React.PureComponent {
     super(props);
     this.state = {
       navItem: DEFINE_NAV_ITEMS.SAMPLE_1,
+      currentChart: DEFINE_NAV_CHART_TYPE.DOUGHNUT_CHART.ENUM,
+      menuOnHover: false,
     };
   }
+
   handleNavSample = (newNavItem) => {
     this.setState({ navItem: newNavItem });
   };
+
+  handleHoverMenuBar = (status) => {
+    this.setState({ menuOnHover: status });
+  };
+
+  changeGraphType = (graphType) => {
+    this.setState({ currentChart: graphType });
+  };
+
   render() {
-    const { navItem } = this.state;
+    const { navItem, menuOnHover, currentChart } = this.state;
     return (
       <Wrapper>
-        <Rowx>
-          <Colx xs={12}>
-            <Header>
-              <HeaderTitle>
-                <span>
-                  <FaChartLine />
-                </span>
-                <span>Chart maker</span>
-              </HeaderTitle>
-              <NavWrapper>
-                <Nav>
-                  <NavItem
-                    active={navItem === DEFINE_NAV_ITEMS.SAMPLE_1}
-                    onClick={() =>
-                      this.handleNavSample(DEFINE_NAV_ITEMS.SAMPLE_1)
-                    }
+        <HeaderWrapper>
+          <ChartMakerHeader
+            currentNavItem={navItem}
+            handleNavSample={this.handleNavSample}
+          />
+        </HeaderWrapper>
+        <MainWrapper>
+          <Rowx className="h-100">
+            <Colx xs={12}>
+              <Rowx className="h-100">
+                <Colx xs={1}>
+                  <MenuBarWrapper
+                    onMouseEnter={() => this.handleHoverMenuBar(true)}
+                    onMouseLeave={() => this.handleHoverMenuBar(false)}
                   >
-                    <NavLink href="#"> Sample 1 </NavLink>
-                  </NavItem>
-                  <NavItem
-                    active={navItem === DEFINE_NAV_ITEMS.SAMPLE_2}
-                    onClick={() =>
-                      this.handleNavSample(DEFINE_NAV_ITEMS.SAMPLE_2)
-                    }
-                  >
-                    <NavLink href="#">Sample 2</NavLink>
-                  </NavItem>
-                </Nav>
-              </NavWrapper>
-            </Header>
-          </Colx>
-        </Rowx>
+                    <MenuBar
+                      menuOnHover={menuOnHover}
+                      currentChart={currentChart}
+                      changeGraphType={this.changeGraphType}
+                    />
+                  </MenuBarWrapper>
+                </Colx>
+                <Colx xs={11}>
+                  <div>this is the chart area</div>
+                </Colx>
+              </Rowx>
+            </Colx>
+          </Rowx>
+        </MainWrapper>
       </Wrapper>
     );
   }
