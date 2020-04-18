@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import * as _ from "lodash";
 import { DEFINE_NAV_CHART_TYPE } from "containers/Home/screens/ChartMaker/constants";
 import LineChart from "containers/Home/components/ChartMaker/LineChart";
+import DoughnutChart from "containers/Home/components/ChartMaker/DoughnutChart";
 
 const Wrapper = styled.div``;
 
@@ -16,6 +17,9 @@ function Chart(props) {
     <Wrapper>
       {currentChart === DEFINE_NAV_CHART_TYPE.SPLINE_CHART.ENUM && (
         <LineChart title={data.title} form={form} />
+      )}
+      {currentChart === DEFINE_NAV_CHART_TYPE.DOUGHNUT_CHART.ENUM && (
+        <DoughnutChart title={data.title} form={form} />
       )}
     </Wrapper>
   );

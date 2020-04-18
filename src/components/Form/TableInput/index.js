@@ -5,7 +5,6 @@ import { Input } from "reactstrap";
 
 const Wrapper = styled.div`
   width: 100%;
-  /* max-width: 50px; */
 `;
 
 function TableInput(props) {
