@@ -12,7 +12,7 @@ function ChartForm(props) {
   const { currentChart, form, setField, setValues } = props;
 
   return (
-    <Wrapper>
+    <Wrapper className="font-md">
       {currentChart === DEFINE_NAV_CHART_TYPE.SPLINE_CHART.ENUM && (
         <LineChartForm form={form} setField={setField} setValues={setValues} />
       )}

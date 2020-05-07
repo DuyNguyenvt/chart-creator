@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./GlobalStyle.css";
 import "./themes/scss/main.scss";
+import "./themes/css/App.css";
+import "bootstrap/dist/css/bootstrap.css";
 import App from "./containers/App/Injectable";
 import { ConnectedRouter } from "connected-react-router";
 import { Provider } from "react-redux";

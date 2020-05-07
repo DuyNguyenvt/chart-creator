@@ -38,11 +38,18 @@ const MenuBarWrapper = styled.div`
 `;
 
 const ChartWrapper = styled.div`
-  width: 500px;
+  width: 70%;
+  max-width: 500px;
+  @media (max-width: 500px) {
+    width: 90%;
+  }
 `;
 
 const FormWrapper = styled.div`
-  padding: 30px;
+  padding: 20px;
+  @media (max-width: 500px) {
+    padding: 0;
+  }
 `;
 
 class ChartMaker extends React.PureComponent {
@@ -97,7 +104,7 @@ class ChartMaker extends React.PureComponent {
           <Rowx className="h-100">
             <Colx xs={12}>
               <Rowx className="h-100">
-                <Colx xs={1}>
+                <Colx xs={2} md={1}>
                   <MenuBarWrapper
                     onMouseEnter={() => this.handleHoverMenuBar(true)}
                     onMouseLeave={() => this.handleHoverMenuBar(false)}
@@ -109,7 +116,7 @@ class ChartMaker extends React.PureComponent {
                     />
                   </MenuBarWrapper>
                 </Colx>
-                <Colx xs={11}>
+                <Colx xs={10} md={11} className="pl-2">
                   <Rowx>
                     <Colx xs={12}>
                       <ChartWrapper>

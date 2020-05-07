@@ -94,13 +94,13 @@ function NewRow(props) {
 
   return (
     <tr>
-      <th scope="row">
+      <td>
         <TableInput
           onChange={handleChangeItemName}
           value={_.get(itemData, "label")}
           placeholder="Add Item Name"
         />
-      </th>
+      </td>
       <td>
         <TableInput
           onChange={handleChangeItemValue}
