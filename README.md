@@ -1,5 +1,8 @@
-## Github host
+## Github Host
+
 http://DuyNguyenvt.github.io/chart-creator
+
+## Boostrapted with Create React App + Boilderplate
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
