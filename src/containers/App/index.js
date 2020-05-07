@@ -10,9 +10,9 @@ function App() {
   return (
     <>
       <Switch>
-        <Route exact path="/" component={TestSeedScreen} />
-        <Route exact path="/author/profile" component={MyProfile} />
-        <Route path="/home" component={Home} />
+        {/* <Route exact path="/" component={TestSeedScreen} />
+        <Route exact path="/author/profile" component={MyProfile} /> */}
+        <Route path="/" component={Home} />
         <Redirect to="/" />
       </Switch>
     </>

@@ -1,5 +1,3 @@
-// ! Notic: i will not use formik to handle this form.
-// ! sHowever, i recommend you guy use formik as it is the best =))
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
@@ -94,13 +92,13 @@ function NewRow(props) {
 
   return (
     <tr>
-      <th scope="row">
+      <td>
         <TableInput
           onChange={handleChangeItemName}
           value={_.get(itemData, "label")}
           placeholder="Add Item Name"
         />
-      </th>
+      </td>
       <td>
         <TableInput
           onChange={handleChangeItemValue}

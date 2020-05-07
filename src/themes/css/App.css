@@ -28,6 +28,37 @@
   color: #61dafb;
 }
 
+.font-md {
+  font-size: 15px;
+}
+.font-lg {
+  font-size: 17px;
+}
+.font-xs {
+  font-size: 12px;
+}
+
+@media only screen and (max-width: 600px) {
+  .font-lg {
+    font-size: 15px;
+  }
+  .font-md {
+    font-size: 12px;
+  }
+  .font-xs {
+    font-size: 10px;
+  }
+  .font-lg-i {
+    font-size: 15px !important;
+  }
+  .font-md-i {
+    font-size: 12px !important;
+  }
+  .font-xs-i {
+    font-size: 10px !important;
+  }
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -12,6 +12,10 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   padding: 0px 12px;
+  /* font-size: 15px;
+  @media (max-width: 500px) {
+    font-size: 11px;
+  } */
 `;
 
 const HeaderTitle = styled.div`
@@ -48,7 +52,7 @@ const NavWrapper = styled.div`
 function Header(props) {
   const { handleNavSample, currentNavItem } = props;
   return (
-    <Wrapper>
+    <Wrapper className="font-md">
       <HeaderTitle>
         <span>
           <FaChartLine />
