@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/chart-creator/static/css/main.ec9f28a0.chunk.css",
-    "main.js": "/chart-creator/static/js/main.b96f6cad.chunk.js",
-    "main.js.map": "/chart-creator/static/js/main.b96f6cad.chunk.js.map",
+    "main.css": "/chart-creator/static/css/main.9c39e0bd.chunk.css",
+    "main.js": "/chart-creator/static/js/main.20deb1d0.chunk.js",
+    "main.js.map": "/chart-creator/static/js/main.20deb1d0.chunk.js.map",
     "runtime-main.js": "/chart-creator/static/js/runtime-main.ab90bd8d.js",
     "runtime-main.js.map": "/chart-creator/static/js/runtime-main.ab90bd8d.js.map",
     "static/css/2.89f067aa.chunk.css": "/chart-creator/static/css/2.89f067aa.chunk.css",
     "static/js/2.3ed2ddd3.chunk.js": "/chart-creator/static/js/2.3ed2ddd3.chunk.js",
     "static/js/2.3ed2ddd3.chunk.js.map": "/chart-creator/static/js/2.3ed2ddd3.chunk.js.map",
     "index.html": "/chart-creator/index.html",
-    "precache-manifest.c2aa2c55ec7796374e6ecdf0c602628a.js": "/chart-creator/precache-manifest.c2aa2c55ec7796374e6ecdf0c602628a.js",
+    "precache-manifest.4db5eda60b9562e70aead4c1d2273dcb.js": "/chart-creator/precache-manifest.4db5eda60b9562e70aead4c1d2273dcb.js",
     "service-worker.js": "/chart-creator/service-worker.js",
     "static/css/2.89f067aa.chunk.css.map": "/chart-creator/static/css/2.89f067aa.chunk.css.map",
-    "static/css/main.ec9f28a0.chunk.css.map": "/chart-creator/static/css/main.ec9f28a0.chunk.css.map",
+    "static/css/main.9c39e0bd.chunk.css.map": "/chart-creator/static/css/main.9c39e0bd.chunk.css.map",
     "static/js/2.3ed2ddd3.chunk.js.LICENSE.txt": "/chart-creator/static/js/2.3ed2ddd3.chunk.js.LICENSE.txt",
     "static/media/my-pic.jpg": "/chart-creator/static/media/my-pic.47006ed7.jpg"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.ab90bd8d.js",
     "static/css/2.89f067aa.chunk.css",
     "static/js/2.3ed2ddd3.chunk.js",
-    "static/css/main.ec9f28a0.chunk.css",
-    "static/js/main.b96f6cad.chunk.js"
+    "static/css/main.9c39e0bd.chunk.css",
+    "static/js/main.20deb1d0.chunk.js"
   ]
 }

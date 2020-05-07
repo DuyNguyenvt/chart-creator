@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "517beeda97c798b3b1dff7020003194b",
+    "revision": "70477cc171ea7b7c0c20040ef0f37ef3",
     "url": "/chart-creator/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/chart-creator/static/css/2.89f067aa.chunk.css"
   },
   {
-    "revision": "990ae57832eb623b6e89",
-    "url": "/chart-creator/static/css/main.ec9f28a0.chunk.css"
+    "revision": "17fcb872980b393909b2",
+    "url": "/chart-creator/static/css/main.9c39e0bd.chunk.css"
   },
   {
     "revision": "1a8702d1e37dd92d2746",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/chart-creator/static/js/2.3ed2ddd3.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "990ae57832eb623b6e89",
-    "url": "/chart-creator/static/js/main.b96f6cad.chunk.js"
+    "revision": "17fcb872980b393909b2",
+    "url": "/chart-creator/static/js/main.20deb1d0.chunk.js"
   },
   {
     "revision": "c2178124b15dc2f5195b",
